@@ -1,24 +1,9 @@
-def findMinAndMax(L):
-    if not L:
-        return (None, None)
-    
-    min_val = max_val = L[0]
-    
-    for num in L:
-        if num < min_val:
-            min_val = num
-        elif num > max_val:
-            max_val = num
-            
-    return (min_val, max_val)
+L1 = ['Hello', 'World', 18, 'Apple', None]
+L2 = [s.lower() for s in L1 if isinstance(s, str)]
 
-if findMinAndMax([]) != (None, None):
-    print('测试失败!')
-elif findMinAndMax([7]) != (7, 7):
-    print('测试失败!')
-elif findMinAndMax([7, 1]) != (1, 7):
-    print('测试失败!')
-elif findMinAndMax([7, 1, 3, 9, 5]) != (1, 9):
-    print('测试失败!')
+# 测试:
+print(L2)
+if L2 == ['hello', 'world', 'apple']:
+    print('测试通过!')
 else:
-    print('测试成功!')
+    print('测试失败!')
