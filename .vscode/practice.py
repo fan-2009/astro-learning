@@ -1,25 +1,24 @@
-def trim(S):
-    n = len(S)
-    start = 0
-    end = n-1
-    while start < n and S[start] == ' ':
-        start +=1
-    while end >=start and S[end] == ' ':
-        end -=1
-    return S[start:end+1]
+def findMinAndMax(L):
+    if not L:
+        return (None, None)
+    
+    min_val = max_val = L[0]
+    
+    for num in L:
+        if num < min_val:
+            min_val = num
+        elif num > max_val:
+            max_val = num
+            
+    return (min_val, max_val)
 
-# 测试:
-if trim('hello  ') != 'hello':
+if findMinAndMax([]) != (None, None):
     print('测试失败!')
-elif trim('  hello') != 'hello':
+elif findMinAndMax([7]) != (7, 7):
     print('测试失败!')
-elif trim('  hello  ') != 'hello':
+elif findMinAndMax([7, 1]) != (1, 7):
     print('测试失败!')
-elif trim('  hello  world  ') != 'hello  world':
-    print('测试失败!')
-elif trim('') != '':
-    print('测试失败!')
-elif trim('    ') != '':
+elif findMinAndMax([7, 1, 3, 9, 5]) != (1, 9):
     print('测试失败!')
 else:
     print('测试成功!')
